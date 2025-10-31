@@ -1,0 +1,35 @@
+name: Auto-generate image gallery
+
+on:
+  push:
+    paths:
+      - "assets/images/**"
+
+jobs:
+  update-gallery:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Generate images.json
+        run: |
+          echo "Generating image list..."
+          IMAGES=$(ls assets/images | grep -E '\.(jpg|jpeg|png|webp|gif)$' | sort)
+          echo "[" > assets/images/images.json
+          SEP=""
+          for FILE in $IMAGES; do
+            echo "$SEP  \"$FILE\"" >> assets/images/images.json
+            SEP=","
+          done
+          echo "]" >> assets/images/images.json
+          cat assets/images/images.json
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/images/images.json
+          git commit -m "Auto-update image list" || echo "No changes to commit"
+          git push

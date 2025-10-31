@@ -1,0 +1,421 @@
+/* =====================================
+   🌲 FOREST READABLE THEME — Arvind K
+   Clean, Soft, and Readable with Live Video
+   ===================================== */
+
+:root {
+  /* Forest Tone Palette */
+  --text: #162c1e;
+  --heading: #080909fc;
+  --card: rgba(245, 245, 240, 0.85);
+  --muted: rgba(30, 55, 40, 0.8);
+  --mint: #008b5e;
+  --accent: #09774f;
+ 
+}
+
+/* Base Reset */
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.7;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+/* Live Background Video */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Overlay for Text Contrast */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Header (Centered Image + Tabs) */
+#header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#header .profile { text-align: center; margin-bottom: 1rem; }
+
+#header #profile-pic {
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  border: 3px solid var(--mint);
+  object-fit: cover;
+  margin: 0 auto 0.6rem;  
+  transition: transform 0.3s ease;
+  background: transparent;
+}
+
+#header #profile-pic:hover { transform: scale(1.05); }
+
+#header h1 {
+  font-size: 1.6rem;
+  color: black;
+  margin: 0.3rem 0;
+}
+
+#header .tag {
+  font-size: 0.95rem;
+  color: black;
+}
+
+/* Navigation */
+#navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+#navbar a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+#navbar a:hover {
+  background: rgba(0, 77, 49, 0.1);
+  color: var(--accent);
+}
+
+/* Main Layout */
+main#main {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+  z-index: 1;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(60px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.card-header h2 { color: var(--heading); }
+
+h3 { color: var(--heading); margin-top: 1.5rem; }
+
+p, li {
+  font-size: 1.05rem;
+  color: var(--text);
+  line-height: 1.75;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.gallery img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, opacity 0.3s;
+}
+.gallery img:hover { transform: scale(1.05); opacity: 0.95; }
+
+/* Skills Tags */
+#skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+#skills li {
+  background: rgba(0, 77, 49, 0.1);
+  border: 1px solid rgba(0, 77, 49, 0.2);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--heading);
+  transition: background 0.3s;
+}
+
+#skills li:hover { background: rgba(0, 195, 125, 0.15); }
+
+/* Contact Section */
+.contact-links { text-align: center; margin-top: 1rem; }
+
+.contact-links p {
+  font-size: 1.05rem;
+  color: var(--heading);
+  line-height: 1.8;
+}
+
+.contact-links a {
+  color: var(--mint);
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+.contact-links a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  #header { padding: 1.5rem 0.5rem; }
+  #header #profile-pic { width: 100px; height: 100px; }
+  #navbar ul { gap: 0.5rem; }
+  #navbar a { font-size: 0.9rem; padding: 0.4rem 0.7rem; }
+  .card { padding: 1rem; }
+}
+/* Smooth Expand/Collapse Animation */
+.card-body {
+  max-height: 1000px;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+/* Card header hover feedback */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.card-header:hover {
+  background: rgba(0, 77, 49, 0.08);
+}
+/* =======================
+   🖼️ Lightbox Full Image View
+   ======================= */
+/* =======================
+   🖼️ Lightbox (Centered Full Image View)
+   ======================= */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* hidden by default */
+  justify-content: center; /* horizontally center */
+  align-items: center;     /* vertically center */
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh; /* ensures it fits within the viewport */
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+  margin: 0 auto; /* ensure centered horizontally */
+}
+
+.lightbox img:hover {
+  transform: scale(1.02);
+}
+
+.lightbox p {
+  color: #f0f0f0;
+  margin-top: 1rem;
+  font-size: 1rem;
+  opacity: 0.8;
+  text-align: center;
+}
+
+#lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#lightbox-close:hover {
+  color: var(--accent);
+}
+
+
+/* =======================
+   📱 Mobile Layout Fixes
+   ======================= */
+@media (max-width: 700px) {
+
+  /* Allow full scrolling on mobile */
+  html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+  }
+
+  /* Fix header spacing */
+  #header {
+    position: relative; /* no sticky on mobile */
+    padding: 1.2rem 0.8rem;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Resize image */
+  #header #profile-pic {
+    width: 90px;
+    height: 90px;
+  }
+
+  /* Stack nav links neatly */
+  #navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+
+  #navbar a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  /* Fix card readability */
+  .card {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 10px;
+    background: rgba(245, 245, 240, 0.9);
+  }
+
+  .card-body {
+    max-height: none !important; /* disable collapse limit on mobile */
+    opacity: 1 !important;
+    overflow: visible;
+  }
+
+  .card-header {
+    cursor: default; /* disable click collapse if needed */
+  }
+
+  /* Gallery images scale properly */
+  .gallery img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Fix lightbox to fully cover screen on mobile */
+  .lightbox {
+    padding: 0.5rem;
+    align-items: center;
+  }
+
+  .lightbox img {
+    width: 95%;
+    height: auto;
+    max-height: 75vh;
+  }
+
+  /* Contact links smaller spacing */
+  .contact-links p {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Footer readable */
+  .site-footer {
+    font-size: 0.85rem;
+    padding: 0.5rem 0;
+  }
+}
+
+@media (max-width: 450px) {
+  #header h1 {
+    font-size: 1.3rem;
+  }
+  #header .tag {
+    font-size: 0.85rem;
+  }
+  p, li {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 700px) {
+  main#main {
+    padding-top: 2rem; /* offset for header height */
+  }
+}
+@media (max-width: 700px) {
+  #bg-video {
+    position: absolute; /* let page scroll normally */
+    height: auto;
+    min-height: 100%;
+  }
+}
+#site {
+  position: relative;
+  z-index: 10;
+}
+
+
